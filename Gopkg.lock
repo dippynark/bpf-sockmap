@@ -3,11 +3,11 @@
 
 [[projects]]
   branch = "177-add-sockmap-support"
-  digest = "1:06041960f4f7c786550ea43bc75ada92ac12c1df36776154a327f31cd79772a9"
+  digest = "1:47ac6c2c26ced5de966344c2cc35de2dc10b23ab11fdc44bd77be5885a67937d"
   name = "github.com/dippynark/gobpf"
   packages = ["elf"]
   pruneopts = "N"
-  revision = "64760e67f145ffe1dde464a1719a1d7b1e0daf31"
+  revision = "735429ef6395986e8144787beec7398715d0cc51"
 
 [[projects]]
   branch = "master"
