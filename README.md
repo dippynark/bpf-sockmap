@@ -1,8 +1,11 @@
-# sockmap
+# bpf-sockmap
 
 ```
 vagrant up
-make bpf
+vagrant ssh
+cd /vagrant
+make build
+make run
 ```
 
 ## Debug
@@ -10,5 +13,5 @@ make bpf
 The generated object file can be viewed using `llvm-objdump`
 
 ```
-llvm-objdump -S ./bpf/bpf_tty.o
+llvm-objdump -S ./bpf/bpf_sockmap.o
 ```
