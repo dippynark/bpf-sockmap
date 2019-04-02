@@ -12,13 +12,10 @@ DEBUG=1
 # If you can use docker without being root, you can do "make SUDO="
 SUDO=$(shell docker info >/dev/null 2>&1 || echo "sudo -E")
 
-start:
-	$(SUDO) docker run --name sockmap -d ${REGISTRY}/${IMAGE}:${TAG}
-
-stop:
-	$(SUDO) docker rm -f sockmap
-
 build: bpf docker_build
+
+run:
+	$(SUDO) docker run -it --privileged ${REGISTRY}/${IMAGE}:${TAG}
 
 docker_build:
 	$(SUDO) docker build -t ${REGISTRY}/${IMAGE}:${TAG} .
