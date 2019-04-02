@@ -1,7 +1,7 @@
 LINUX_HEADERS=$(shell uname -r | awk '{print "/usr/src/linux-headers-"$$1}')
 DEST_DIR?=/dist
 
-BPF = bpf_sockmap.o
+ASSETS = bpf_sockmap.go
 
 CLANG ?= clang
 CLANG_FLAGS := -D__KERNEL__ -D__ASM_SYSREG_H \
@@ -22,10 +22,11 @@ LLC_FLAGS := -march=bpf -filetype=obj
 GO_BINDATA := go-bindata
 GO_BINDATA_FLAGS := -pkg sockmap -prefix "${DEST_DIR}/" -modtime 1
 
-bpf: $(BPF)
+assets: $(ASSETS)
+
+%.go: %.o
+	${GO_BINDATA} ${GO_BINDATA_FLAGS} -o "${DEST_DIR}/$(@)" "${DEST_DIR}/$(@:.go=.o)"
 
 %.o: %.c
 	@mkdir -p "$(DEST_DIR)"
 	${CLANG} ${CLANG_FLAGS} -c $< -o - | ${LLC} ${LLC_FLAGS} -o "${DEST_DIR}/$@"
-	${GO_BINDATA} ${GO_BINDATA_FLAGS} -o "${DEST_DIR}/$(@:.o=.go)" "${DEST_DIR}/$@"
-

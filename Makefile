@@ -32,12 +32,12 @@ docker_build_bpf: docker_build_image
 		-v /usr/src:/usr/src \
 		--workdir=/src/bpf \
 		$(REGISTRY)/bpf-builder \
-		make bpf
+		make assets
 
 docker_build_image:
 	$(SUDO) docker build -t $(REGISTRY)/bpf-builder -f $(BPF_DOCKERFILE) .
 
 install_bpf:
-	cp -a bpf/bpf_sockmap.go pkg/sockmap/bpf_sockmap.go
 	mkdir -p pkg/sockmap/include
 	cp -a bpf/include/*.h pkg/sockmap/include
+	cp -a bpf/*.go pkg/sockmap
