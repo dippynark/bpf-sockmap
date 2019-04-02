@@ -1,0 +1,4 @@
+.vscode
+.vagrant
+bpf_sockmap.go
+*-console.log
