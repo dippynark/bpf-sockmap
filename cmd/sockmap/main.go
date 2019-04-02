@@ -7,7 +7,7 @@ import (
 	"net"
 	"syscall"
 
-	"github.com/dippynark/sockmap/pkg/sockmap"
+	"github.com/dippynark/bpf-sockmap/pkg/sockmap"
 )
 
 const (
