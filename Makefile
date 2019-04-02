@@ -4,7 +4,7 @@ GOLDFLAGS := -ldflags
 
 BPF_DOCKERFILE ?= bpf/Dockerfile
 REGISTRY ?= dippynark
-IMAGE ?= sockmap
+IMAGE ?= bpf-sockmap
 TAG ?= $(shell uname -r)
 
 DEBUG=1
@@ -15,7 +15,7 @@ SUDO=$(shell docker info >/dev/null 2>&1 || echo "sudo -E")
 build: bpf docker_build
 
 run:
-	$(SUDO) docker run -it --privileged ${REGISTRY}/${IMAGE}:${TAG}
+	$(SUDO) docker run -it --privileged --net=host ${REGISTRY}/${IMAGE}:${TAG}
 
 docker_build:
 	$(SUDO) docker build -t ${REGISTRY}/${IMAGE}:${TAG} .
