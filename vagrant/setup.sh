@@ -12,4 +12,5 @@ apt-get install -y \
   linux-image-4.18.0-16-generic \
   linux-headers-4.18.0-16-generic \
   make \
-  docker.io
+  docker.io \
+  llvm
