@@ -5,7 +5,7 @@ bpf-sockmap uses [BPF_PROG_TYPE_SK_SKB](https://lwn.net/Articles/731133/) progra
 ## Quickstart
 
 ```
-$ vagrant box add ubuntu/bionic64
+$ vagrant box list | grep ubuntu/bionic64 || vagrant box add ubuntu/bionic64
 $ vagrant up
 $ vagrant ssh
 $ cd /vagrant
