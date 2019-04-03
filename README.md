@@ -7,6 +7,7 @@ bpf-sockmap uses [BPF_PROG_TYPE_SK_SKB](https://lwn.net/Articles/731133/) BPF pr
 [Vagrant](https://www.vagrantup.com/) can be used to spin up a virtual environment to test the BPF programs. The environment depends on [VirtualBox](https://www.virtualbox.org/wiki/Downloads) but other [providers](https://www.vagrantup.com/docs/providers/) exist.
 
 ```
+$ vagrant plugin install vagrant-reload
 $ vagrant box list | grep ubuntu/bionic64 || vagrant box add ubuntu/bionic64
 $ vagrant up
 $ vagrant ssh
