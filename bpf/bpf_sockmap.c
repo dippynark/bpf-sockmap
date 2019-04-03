@@ -17,7 +17,7 @@ struct bpf_map_def SEC("maps/sockmap") sock_map = {
 	.namespace = "",
 };
 
-#define DEBUG 1
+//#define DEBUG 1
 #ifndef DEBUG
 /* Only use this for debug output. Notice output from bpf_trace_printk()
  * end-up in /sys/kernel/debug/tracing/trace_pipe
@@ -28,21 +28,20 @@ struct bpf_map_def SEC("maps/sockmap") sock_map = {
 		bpf_trace_printk(____fmt, sizeof(____fmt), ##__VA_ARGS__);     \
 	})
 #else
-#define bpf_debug(fmt, ...)                                                    \
-	{                                                                      \
-	}                                                                      \
-	while (0)
+#define bpf_debug(fmt, ...){;}
 #endif
 
 SEC("sk/skb/parser/sockmap")
 int _prog_parser(struct __sk_buff *skb)
 {
+	bpf_debug("parser\n");
 	return skb->len;
 }
 
 SEC("sk/skb/verdict/sockmap")
 int _prog_verdict(struct __sk_buff *skb)
 {
+	bpf_debug("verdict\n");
   uint32_t idx = 0;
 	return bpf_sk_redirect_map(skb, &sock_map, idx, 0);
 }
