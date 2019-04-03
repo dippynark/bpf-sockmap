@@ -11,6 +11,7 @@ $ vagrant plugin install vagrant-reload
 $ vagrant box list | grep ubuntu/bionic64 || vagrant box add ubuntu/bionic64
 $ vagrant up
 $ vagrant ssh
+# we are assuming commands are run from within the vagrant vm from here
 $ cd /vagrant
 $ make build
 $ make run
