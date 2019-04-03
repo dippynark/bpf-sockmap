@@ -1,6 +1,6 @@
 # bpf-sockmap
 
-bpf-sockmap uses [BPF_PROG_TYPE_SK_SKB](https://lwn.net/Articles/731133/) BPF programs to create a simple telnet echo server. It is heavily inspired by the [Cloudflare blog](https://github.com/cloudflare/cloudflare-blog/blob/master/2019-02-tcp-splice/echo-sockmap-kern.c).
+bpf-sockmap uses [BPF_PROG_TYPE_SK_SKB](https://lwn.net/Articles/731133/) BPF programs to create a simple telnet echo server. It is heavily inspired by the [Cloudflare blog](https://blog.cloudflare.com/sockmap-tcp-splicing-of-the-future/).
 
 ## Quickstart
 
