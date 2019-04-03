@@ -31,7 +31,7 @@ Connection closed.
 
 ## Debug
 
-The generated object file can be viewed using `llvm-objdump`
+The generated object file can be inspected using `llvm-objdump`
 
 ```
 llvm-objdump -S ./bpf/bpf_sockmap.o
