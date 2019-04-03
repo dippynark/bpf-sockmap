@@ -12,9 +12,9 @@ $ make build
 $ make run
 ...
 2019/04/03 00:53:12 listening on address: 0.0.0.0:12345
-# in another terminal
+# in another terminal watch debug output
 $ sudo cat /sys/kernel/debug/tracing/trace_pipe
-# in yet another terminal
+# in yet another terminal start a telnet session
 $ telnet 127.0.0.1 12345
 Trying 127.0.0.1...
 Connected to 127.0.0.1.
